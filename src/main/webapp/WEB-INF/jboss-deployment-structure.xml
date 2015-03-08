@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<jboss-deployment-structure>
+    <deployment>
+        <dependencies>
+            <module name="org.hibernate" slot="main" services="export" />
+            <module name="org.javassist" slot="main" services="export" />
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>
+    
