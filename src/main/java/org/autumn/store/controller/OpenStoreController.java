@@ -20,7 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
- * @author Mitesh Manani
+ * @author Mitesh Manani (miteshmanani@gmail.com)
  */
 @Controller
 public class OpenStoreController {
