@@ -34,7 +34,7 @@
         <beans:property name="dataSource" ref="dataSource" />
         <beans:property name="annotatedClasses">
             <beans:list>
-                <beans:value>org.autumn.store.model.OpenStore</beans:value>
+                <beans:value>org.storezilla.store.model.OpenStore</beans:value>
             </beans:list>
         </beans:property>
 
@@ -47,15 +47,15 @@
         </beans:property>
     </beans:bean>
      
-    <beans:bean id="storeDao" class="org.autumn.store.dao.OpenStoreImpl">
+    <beans:bean id="storeDao" class="org.storezilla.store.dao.OpenStoreImpl">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
         
-    <beans:bean id="storeService" class="org.autumn.store.service.OpenStoreServiceImpl">
+    <beans:bean id="storeService" class="org.storezilla.store.service.OpenStoreServiceImpl">
         <beans:property name="storeDao" ref="storeDao"></beans:property>
     </beans:bean>
 
-    <context:component-scan base-package="org.autumn" />
+    <context:component-scan base-package="org.storezilla" />
      
     <tx:annotation-driven transaction-manager="transactionManager"/>
      

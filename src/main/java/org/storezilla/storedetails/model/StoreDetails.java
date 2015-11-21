@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.autumn.storedetails.model;
+package org.storezilla.storedetails.model;
 
 import javax.persistence.Embeddable;
 

@@ -1,4 +1,4 @@
-package org.autumn.store.model;
+package org.storezilla.store.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import org.autumn.storedetails.model.StoreDetails;
+import org.storezilla.storedetails.model.StoreDetails;
 import org.hibernate.annotations.Proxy;
 
 

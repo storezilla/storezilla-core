@@ -2,11 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.autumn.store.controller;
+package org.storezilla.store.controller;
 
 import java.util.ArrayList;
-import org.autumn.store.model.OpenStore;
-import org.autumn.store.service.OpenStoreService;
+import org.storezilla.store.model.OpenStore;
+import org.storezilla.store.service.OpenStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;

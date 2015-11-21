@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.autumn.store.service;
+package org.storezilla.store.service;
 
 import java.util.List;
-import org.autumn.store.model.OpenStore;
+import org.storezilla.store.model.OpenStore;
 
 /**
  *
