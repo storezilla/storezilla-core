@@ -1,4 +1,4 @@
-<div class="ui small fluid vertical pointing menu">
+<div class="ui small brown inverted fluid vertical pointing menu">
     <a class="item" id="at-menu-item-store">
         <i class="home icon"></i>Store
     </a>

@@ -33,9 +33,10 @@
                         <table class="ui celled structured table">
                             <thead class="full-width">
                             <th>
-                            <div class="ui big label">
-                                <i class="list icon"></i> Store List
-                            </div>
+                            <h5 class="ui header">
+                                  <i class="list icon"></i>
+                                <div class="content">Store List</div>
+                            </h5>
                             </th>
                             </thead>
                             <tbody>
