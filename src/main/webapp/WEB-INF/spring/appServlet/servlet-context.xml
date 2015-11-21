@@ -26,7 +26,7 @@
     </beans:bean>
 
     <beans:bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <beans:property name="jndiName" value="jdbc/openstores"/>
+        <beans:property name="jndiName" value="jdbc/storezilla"/>
     </beans:bean>
 
     <!-- Hibernate 4 SessionFactory Bean definition -->
