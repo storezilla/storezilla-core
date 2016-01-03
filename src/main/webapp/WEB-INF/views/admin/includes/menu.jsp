@@ -1,5 +1,5 @@
 <div class="ui small brown inverted fluid vertical pointing menu">
-    <a class="item" id="at-menu-item-store">
+    <a class="item" id="at-menu-item-store" href="#/liststores">
         <i class="home icon"></i>Store
     </a>
     <a class="item" id="at-menu-item-catalouge">

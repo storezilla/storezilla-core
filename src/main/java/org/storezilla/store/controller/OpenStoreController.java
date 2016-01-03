@@ -5,16 +5,25 @@
 package org.storezilla.store.controller;
 
 import java.util.ArrayList;
+import java.util.List;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import org.storezilla.store.model.OpenStore;
 import org.storezilla.store.service.OpenStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,8 +32,10 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Mitesh Manani (miteshmanani@gmail.com)
  */
 @Controller
+@RequestMapping(value="/stores")
 public class OpenStoreController {
     
+    @Autowired
     private OpenStoreService storeService;
     
     @Autowired(required = true)
@@ -32,63 +43,44 @@ public class OpenStoreController {
     public void setOpenStoreService(OpenStoreService storeService) {
         this.storeService = storeService;
     }
-
-    @RequestMapping(value = "/store/add",method = RequestMethod.POST)
-    public String addOpenStore(@ModelAttribute("store") OpenStore store,Model model) {
-        if(store.getStoreId()==0) {
+    
+    @RequestMapping(method = RequestMethod.GET,produces = {MediaType.APPLICATION_JSON})
+    public @ResponseBody List<OpenStore> listOpenStores() {
+        return storeService.listOpenStores();
+    }
+    
+    @RequestMapping(value = "/add",method = RequestMethod.POST,consumes = {MediaType.APPLICATION_JSON})
+    @ResponseStatus(value = HttpStatus.OK)
+    public @ResponseBody void addOpenStore(@RequestBody OpenStore store) {
             this.storeService.addOpenStore(store);
-        } else {
-            this.storeService.updateOpenStore(store);
-        }
-        model.addAttribute("listOpenStores",this.storeService.listOpenStores());
-        return "includes/listStores";
-    }
-    
-    @RequestMapping(value = "/listStores",method = RequestMethod.GET)
-    public ModelAndView listOpenStores(@ModelAttribute("store") OpenStore store) {
-        ModelAndView model = new ModelAndView("includes/listStores");
-        model.addObject("listOpenStores",this.storeService.listOpenStores());
-        if(store==null) 
-            model.addObject("store",new OpenStore());
-        else 
-            model.addObject("store",store);
-        return model;
-    }
-    
-    @RequestMapping(value = "/stores",method = RequestMethod.GET)
-    public ModelAndView getHomePage(@ModelAttribute("store") OpenStore store) {
-        ModelAndView model = new ModelAndView("index");
-        if(store==null) 
-            model.addObject("store",new OpenStore());
-        else 
-            model.addObject("store",store);
-        model.addObject("listOpenStores",this.storeService.listOpenStores());
-        return model;
-    }
-    
-    @RequestMapping(value = "/remove/{storeId}",method = RequestMethod.POST)
-    public ModelAndView removeOpenStore(@PathVariable("storeId") int storeId,@ModelAttribute("store") OpenStore store) {
-        ModelAndView model = new ModelAndView("includes/listStores");
-        this.storeService.removeOpenStore(storeId);
-        model.addObject("listOpenStores",this.storeService.listOpenStores());
-        return model;
-    }
-    
-    @RequestMapping(value = "/edit/{storeId}",method = RequestMethod.POST)
-    public String editOpenStore(@PathVariable("storeId") int storeId,Model model) {
-        model.addAttribute("store",this.storeService.getStoreById(storeId));
-        return "includes/store";
     }
 
-    @RequestMapping(value = "/store/create",method=RequestMethod.POST)
-    public ModelAndView createStore() {
-        ModelAndView mav = new ModelAndView("includes/store","store",new OpenStore());
-        return mav;
+    @RequestMapping(value = "/edit",method = RequestMethod.PUT,produces = {MediaType.APPLICATION_JSON},consumes = {MediaType.APPLICATION_JSON})
+    @ResponseStatus(value = HttpStatus.OK)
+    public @ResponseBody void editOpenStore(@RequestBody OpenStore store)  {
+        this.storeService.updateOpenStore(store);
     }
-    @RequestMapping(value = "/cancelsave",method = RequestMethod.POST)
-    public String cancelSaveStore(Model model) {
-        model.addAttribute("listOpenStores",this.storeService.listOpenStores());
-        model.addAttribute("store",new OpenStore());
-        return "includes/listStores";
+   
+    @RequestMapping(value = "/remove/{storeId}",method = RequestMethod.DELETE)
+    @ResponseStatus(value = HttpStatus.OK)
+    public @ResponseBody void removeOpenStore(@PathVariable int storeId) {
+        this.storeService.removeOpenStore(storeId);
     }
+    
+    @RequestMapping(value="/list",method = RequestMethod.GET)
+    public String getStoreList() {
+        System.out.println("Now serving the request");
+        return "/store/listStores";
+    }
+
+    @RequestMapping(value="/getallstores")
+    public String getListStoresPage() {
+        return "store/listStores";
+    }
+    
+    @RequestMapping(value="/geteditstore")
+    public String getEditStorePage() {
+        return "store/store";
+    }
+    
 }

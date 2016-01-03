@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html ng-app="storezilla-admin">
     <head>
         <%@include file="includes/head.jsp"%>
     </head>
@@ -11,16 +11,14 @@
             </header>
             <table class="ui celled structured table" border="1">
                 <tbody>
-                    <tr>
+                    <tr>    
                         <td id="at-tr-menu" rowspan="3">
                             <jsp:include page="includes/menu.jsp"></jsp:include>
                         </td>
                     </tr>
                     <tr>
                          <td>
-                            <div id="at-tr-pages-section">
-                                <jsp:include  page="includes/listStores.jsp"></jsp:include>
-                            </div>
+                            <ng-view></ng-view>
                         </td>
                     </tr>
                 </tbody>
@@ -29,5 +27,12 @@
                 <jsp:include page="includes/footer.jsp"></jsp:include>
             </footer>
         </div>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/angular.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/angular-route.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/semantic.min.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/services/storeservice.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/controllers/OpenStoreController.js"></script>
     </body>
 </html>

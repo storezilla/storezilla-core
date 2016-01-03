@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.storezilla.storedetails.model.StoreDetails;
 import org.hibernate.annotations.Proxy;
 
@@ -25,6 +27,7 @@ import org.hibernate.annotations.Proxy;
 @Entity
 @Table(name = "openstore")
 @Proxy(lazy = false)
+@XmlRootElement(name = "store")
 public class OpenStore {
 
     @Id
@@ -33,9 +36,10 @@ public class OpenStore {
     private int storeId;
     private String storeName;
     private String storeURL;
+    
     @Embedded
     private StoreDetails storeDetails;
-
+    
     public StoreDetails getStoreDetails() {
         return storeDetails;
     }
@@ -66,10 +70,5 @@ public class OpenStore {
 
     public void setStoreName(String storeName) {
         this.storeName = storeName;
-    }
-
-    @Override
-    public String toString() {
-        return "storeId=" + storeId + ", storeName=" + storeName +", storeURL=" + storeURL;
     }
 }

@@ -5,6 +5,8 @@
 package org.storezilla.storedetails.model;
 
 import javax.persistence.Embeddable;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
@@ -84,9 +86,5 @@ public class StoreDetails {
 
     public void setComment(String comment) {
         this.comment = comment;
-    }
-    
-    public String toString() {
-        return "";
     }
 }
