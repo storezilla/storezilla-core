@@ -15,14 +15,12 @@ import org.springframework.stereotype.Repository;
  *
  * @author Mitesh Manani
  */
-@Repository
+@Repository("storeDao")
 public class OpenStoreImpl implements OpenStoreDao {
+    
     @Autowired
     private SessionFactory sessionFactory;
 
-    /**
-     * @param sessionFactory the sessionFactory to set
-     */
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }

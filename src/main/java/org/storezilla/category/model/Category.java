@@ -11,19 +11,24 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.Proxy;
+
 
 /**
  *
  * @author miteshmanani
  */
 
-@Entity(name = "category_master")
+@Entity(name = "category")
 public class Category {
     
     @Id
     @Column(name = "categoryid")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int categoryId;
+    
+    @Column(name = "sortorder")
+    private int sortOrder;
     
     @Column(name = "category_name")
     private String categoryName;
@@ -54,5 +59,19 @@ public class Category {
      */
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    /**
+     * @return the sortOrder
+     */
+    public int getSortOrder() {
+        return sortOrder;
+    }
+
+    /**
+     * @param sortOrder the sortOrder to set
+     */
+    public void setSortOrder(int sortOrder) {
+        this.sortOrder = sortOrder;
     }
 }

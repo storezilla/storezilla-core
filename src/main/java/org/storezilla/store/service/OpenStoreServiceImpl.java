@@ -5,6 +5,7 @@
 package org.storezilla.store.service;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.storezilla.store.dao.OpenStoreDao;
 import org.storezilla.store.model.OpenStore;
 import org.springframework.stereotype.Service;
@@ -14,14 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Mitesh Manani
  */
-@Service
+@Service("storeService")
 public class OpenStoreServiceImpl implements OpenStoreService {
     
+    @Autowired
     private OpenStoreDao storeDao;
-
-    public void setStoreDao(OpenStoreDao storeDao) {
-        this.storeDao = storeDao;
-    }    
 
     @Override
     @Transactional

@@ -13,7 +13,7 @@
  
     <!-- Enables the Spring MVC @Controller programming model -->
     <annotation-driven />
- 
+    
     <!-- Handles HTTP GET requests for /resources/** by efficiently serving 
         up static resources in the ${webappRoot}/resources directory -->
     <resources mapping="/resources/**" location="/resources/" />
@@ -35,6 +35,7 @@
         <beans:property name="annotatedClasses">
             <beans:list>
                 <beans:value>org.storezilla.store.model.OpenStore</beans:value>
+                <beans:value>org.storezilla.category.model.Category</beans:value>
             </beans:list>
         </beans:property>
 
@@ -46,17 +47,8 @@
             </beans:props>
         </beans:property>
     </beans:bean>
-     
-    <beans:bean id="storeDao" class="org.storezilla.store.dao.OpenStoreImpl">
-        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-    </beans:bean>
-        
-    <beans:bean id="storeService" class="org.storezilla.store.service.OpenStoreServiceImpl">
-        <beans:property name="storeDao" ref="storeDao"></beans:property>
-    </beans:bean>
-
-    <context:component-scan base-package="org.storezilla" />
-     
+    
+    <context:component-scan base-package="org.storezilla"/>
     <tx:annotation-driven transaction-manager="transactionManager"/>
      
     <beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">

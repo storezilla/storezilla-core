@@ -1,5 +1,6 @@
 package org.storezilla.store.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.CascadeType;
@@ -21,10 +22,6 @@ import org.hibernate.annotations.Proxy;
 import org.storezilla.category.model.Category;
 
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
  * @author Mitesh Manani
@@ -48,7 +45,8 @@ public class OpenStore {
     @OneToMany
     @JoinTable(name = "store_category_mapping",joinColumns = @JoinColumn(name = "storeid"),
                 inverseJoinColumns = @JoinColumn(name = "categoryid"))
-    private Collection<Category> category = new ArrayList<Category>();
+    @JsonIgnore
+    private Collection<Category> categories = new ArrayList<Category>();
     
     public StoreDetails getStoreDetails() {
         return storeDetails;
@@ -82,17 +80,11 @@ public class OpenStore {
         this.storeName = storeName;
     }
 
-    /**
-     * @return the category
-     */
-    public Collection<Category> getCategory() {
-        return category;
+    public Collection<Category> getCategories() {
+        return categories;
     }
 
-    /**
-     * @param category the category to set
-     */
-    public void setCategory(Collection<Category> category) {
-        this.category = category;
+    public void setCategories(Collection<Category> categories) {
+        this.categories = categories;
     }
 }
