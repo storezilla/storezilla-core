@@ -27,7 +27,7 @@ storezillaadminapp.controller('SZACategoryEditController',function($scope,$route
 
 storezillaadminapp.controller('SZACategoryDeleteController',function($scope,$routeParams,CategoryService,$location){
     $scope.category = CategoryService.listCategories[$routeParams.id];
-    StoreService.removeCategory($routeParams.id).success(function(response){
-        $location.path('/liststores');
+    CategoryService.removeCategory($routeParams.id).success(function(response){
+        $location.path('/listcategories');
     });
 });

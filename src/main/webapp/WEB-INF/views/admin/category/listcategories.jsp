@@ -40,6 +40,7 @@
                                                 <th>Category Name</th>
                                                 <th>Sort Order</th>
                                                 <th>Edit</th>
+                                                <th>Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>

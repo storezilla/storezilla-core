@@ -42,12 +42,6 @@ public class OpenStore {
     @Embedded
     private StoreDetails storeDetails;
     
-    @OneToMany
-    @JoinTable(name = "store_category_mapping",joinColumns = @JoinColumn(name = "storeid"),
-                inverseJoinColumns = @JoinColumn(name = "categoryid"))
-    @JsonIgnore
-    private Collection<Category> categories = new ArrayList<Category>();
-    
     public StoreDetails getStoreDetails() {
         return storeDetails;
     }
@@ -78,13 +72,5 @@ public class OpenStore {
 
     public void setStoreName(String storeName) {
         this.storeName = storeName;
-    }
-
-    public Collection<Category> getCategories() {
-        return categories;
-    }
-
-    public void setCategories(Collection<Category> categories) {
-        this.categories = categories;
     }
 }

@@ -11,7 +11,7 @@
                 </div>                        
             </td>
             <td id="at-td-savebutton" style="border-style:none;">
-                <button name="at-store-savebutton" type ="submit" class="ui green icon submit button" data-content="Save" data-variation="inverted" ng-click="SaveStore()">
+                <button name="at-store-savebutton" type ="submit" class="ui green icon submit button" data-content="Save" data-variation="inverted" ng-click="SaveCategory()">
                     <i class="save icon"></i>
                 </button>
             </td>
@@ -31,7 +31,7 @@
                         </div>
                         <p>That offer has expired</p>
                     </div>
-                    <div class="container" id="context1">
+                    <div class="container">
                         <div class="ui tab segment active" data-tab="at-store-tabs">
                             <div class="ui top attached tabular menu">
                                 <a class="item active" data-tab="at-sub-general">General</a>
@@ -47,7 +47,19 @@
                                     </div>
                                     <div class="field">
                                         <label>Category Description</label>
-                                        <div text-angular></div>
+                                        <div text-angular ng-model="category.categoryDescription"></div>
+                                    </div>
+                                    <div class="field">
+                                        <label>Meta Tag Title</label>
+                                        <input type="text" ng-model="category.metaTitle" placeholder="Meta Tag Title" />
+                                    </div>
+                                    <div class="field">
+                                        <label>Meta Tag Description</label>
+                                        <textarea ng-model="category.metaDescription" placeholder="Meta Tag Description"></textarea>
+                                    </div>
+                                    <div class="field">
+                                        <label>Meta Tag Keywords</label>
+                                        <textarea ng-model="category.metaKeywords" placeholder="Meta Tag Keywords"></textarea>
                                     </div>
                                 </div>
                             </div>

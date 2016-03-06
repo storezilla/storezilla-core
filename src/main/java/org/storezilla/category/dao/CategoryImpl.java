@@ -40,7 +40,7 @@ public class CategoryImpl implements CategoryDao {
     @Override
     public List<Category> listCategories() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Category> listCategories = session.createQuery("From Category").list();
+        List<Category> listCategories = session.createQuery("From category").list();
         for(Category category : listCategories) {
             System.out.println("Category List : "+listCategories);
         }
