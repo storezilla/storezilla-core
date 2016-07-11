@@ -44,6 +44,26 @@ storezillaadminapp.config(['$routeProvider',
             templateUrl:_contextPath+"/categories/geteditcategory",
             controller : "SZACategoryUpdateController"
         });
+        $routeProvider.when("/listproducts",{
+            templateUrl:_contextPath+"/products/getallproducts",
+            controller : "SZAProductListController"
+        });
+        $routeProvider.when("/editproduct/:id",{
+            templateUrl:_contextPath+"/products/geteditproduct",
+            controller : "SZAProductEditController"
+        });
+        $routeProvider.when("/removeproduct/:id",{
+            templateUrl:_contextPath+"/products/getallproducts",
+            controller : "SZAProductDeleteController"
+        });
+        $routeProvider.when("/addproduct",{
+            templateUrl:_contextPath+"/products/geteditproduct",
+            controller : "SZAProductAddController"
+        });
+        $routeProvider.when("/updateproduct",{
+            templateUrl:_contextPath+"/products/geteditproduct",
+            controller : "SZAProductUpdateController"
+        });
    }]);
    
     storezillaadminapp.config(['$provide', function($provide){
@@ -68,7 +88,6 @@ storezillaadminapp.config(['$routeProvider',
               disabled: 'disabled',
               textEditor: 'form-control',
               htmlEditor: 'form-control'
-              
 /* Working              
               focussed: 'ui segment focussed',
               toolbar: 'ui basic attached segment',

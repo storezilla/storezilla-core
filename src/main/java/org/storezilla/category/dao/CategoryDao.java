@@ -15,8 +15,8 @@ import org.storezilla.category.model.Category;
 @Component
 public interface CategoryDao {
     public void addCategory(Category store);
-    public void removeCategory(int storeId);
+    public void removeCategory(int categoryId);
     public List<Category> listCategories();
     public Category getCategoryById(int id);
-    public void updateCategory(Category store);
+    public void updateCategory(Category category);
 }

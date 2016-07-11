@@ -40,3 +40,11 @@ td#at-store-savebutton {
 td#at-td-cancelbutton {
     width: 1%;
 }
+.ng-enter {
+    animation: scaleUp 0.8s both ease-in;
+    z-index: 5555;
+}
+.ng-leave {
+    animation: slideOutLeft 0.7s both ease-in;
+    z-index: 6666;
+}

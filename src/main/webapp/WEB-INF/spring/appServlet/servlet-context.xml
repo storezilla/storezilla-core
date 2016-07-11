@@ -36,6 +36,7 @@
             <beans:list>
                 <beans:value>org.storezilla.store.model.OpenStore</beans:value>
                 <beans:value>org.storezilla.category.model.Category</beans:value>
+                <beans:value>org.storezilla.product.model.Product</beans:value>
             </beans:list>
         </beans:property>
 

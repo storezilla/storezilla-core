@@ -5,7 +5,7 @@
     <a class="item" href="#/listcategories">
         <i class="cubes icon"></i>Categories
     </a>
-    <a class="item" id="at-menu-item-catalouge">
+    <a class="item" href="#/listproducts">
         <i class="tags icon"></i>Products
     </a>
     <a class="item" id="at-menu-item-catalouge">

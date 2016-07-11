@@ -42,28 +42,28 @@ public class CategoryController {
 
     @RequestMapping(value = "/edit",method = RequestMethod.PUT,produces = {MediaType.APPLICATION_JSON},consumes = {MediaType.APPLICATION_JSON})
     @ResponseStatus(value = HttpStatus.OK)
-    public @ResponseBody void editOpenStore(@RequestBody Category category)  {
+    public @ResponseBody void editCategory(@RequestBody Category category)  {
         this.categoryService.updateCategory(category);
     }
    
     @RequestMapping(value = "/remove/{categoryId}",method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.OK)
-    public @ResponseBody void removeOpenStore(@PathVariable int categoryId) {
+    public @ResponseBody void removeCategory(@PathVariable int categoryId) {
         this.categoryService.removeCategory(categoryId);
     }
     
     @RequestMapping(value="/list",method = RequestMethod.GET)
-    public String getStoreList() {
+    public String getCategoryList() {
         return "category/listcategories";
     }
 
     @RequestMapping(value="/getallcategories")
-    public String getListStoresPage() {
+    public String getListCategoriesPage() {
         return "category/listcategories";
     }
     
     @RequestMapping(value="/geteditcategory")
-    public String getEditStorePage() {
+    public String getEditCategoryPage() {
         return "category/category";
     }
 }

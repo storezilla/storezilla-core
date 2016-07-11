@@ -18,7 +18,7 @@
                     </tr>
                     <tr>
                          <td>
-                            <ng-view></ng-view>
+                            <div ng-view></div>
                         </td>
                     </tr>
                 </tbody>
@@ -32,10 +32,12 @@
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/angular-route.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/semantic.min.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/services/storeservice.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/services/StoreService.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/services/CategoryService.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/services/ProductService.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/controllers/OpenStoreController.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/controllers/CategoryController.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/controllers/ProductController.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/textAngular-rangy.min.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/textAngular-sanitize.min.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/textAngular.min.js"></script>

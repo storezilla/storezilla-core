@@ -9,7 +9,7 @@ storezillaadminapp.controller('SZACategoryListController',function($scope,Catego
 });
 
 storezillaadminapp.controller('SZACategoryAddController',function($scope,$location,CategoryService){
-    $scope.SaveStore = function() {
+    $scope.SaveCategory = function() {
         CategoryService.addCategory($scope.category).success(function(response) {
             $location.path('/listcategories');
         });
