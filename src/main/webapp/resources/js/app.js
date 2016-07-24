@@ -2,8 +2,8 @@
 
 var storezillaadminapp = angular.module('storezilla-admin',['ngRoute','textAngular']);
 
-storezillaadminapp.config(['$routeProvider',
-    function($routeProvider) {
+storezillaadminapp.config(['$routeProvider','$locationProvider',
+    function($routeProvider,$locationProvider) {
         $routeProvider.when("/liststores",{
             templateUrl:_contextPath+"/stores/getallstores",
             controller : "SZAStoreListController"
@@ -64,6 +64,7 @@ storezillaadminapp.config(['$routeProvider',
             templateUrl:_contextPath+"/products/geteditproduct",
             controller : "SZAProductUpdateController"
         });
+        //$locationProvider.html5Mode({enabled : true,requireBase : false});
    }]);
    
     storezillaadminapp.config(['$provide', function($provide){
@@ -121,3 +122,6 @@ storezillaadminapp.config(['$routeProvider',
           return taTools;
       }]);   
     }]);
+$('.menu .item')
+  .tab()
+;

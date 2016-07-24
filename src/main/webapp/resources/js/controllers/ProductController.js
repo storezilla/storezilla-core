@@ -9,14 +9,29 @@ storezillaadminapp.controller('SZAProductListController',function($scope,Product
 });
 
 storezillaadminapp.controller('SZAProductAddController',function($scope,$location,ProductService){
+    $('.menu .item').tab();
+    $('select.dropdown').dropdown();
+    $('.ui.checkbox').checkbox();
+    $('.ui.radio.checkbox').checkbox();
+    $('.ui.dropdown').dropdown({allowAdditions: true});
+    $('.ui.special.dropdown').dropdown({allowAdditions: false});
     $scope.SaveProduct = function() {
         ProductService.addProduct($scope.product).success(function(response) {
             $location.path('/listproducts');
         });
     };
+    $scope.attributes = [];
+    $scope.addRow = function() {
+        var attribute = {name : $scope.name , value:$scope.value};
+      $scope.attributes.push(attribute);
+    };
+    $scope.removeAttribute = function(index) {
+        $scope.attributes.splice(index,1);
+    };
 });
 
 storezillaadminapp.controller('SZAProductEditController',function($scope,$routeParams,ProductService,$location){
+    $('.menu .item').tab();
     $scope.product = ProductService.listProducts[$routeParams.id];
     $scope.SaveProduct = function() {
         ProductService.updateProduct($scope.product).success(function(response){

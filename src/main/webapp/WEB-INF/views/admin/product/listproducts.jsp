@@ -36,15 +36,22 @@
                                 <table class="ui celled structured table" border="1">
                                     <thead class="full-width">
                                         <tr>
+                                            <th>Image</th>
                                             <th>Product Name</th>
-                                            <th>Sort Order</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
+                                            <th>Model</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr ng-repeat="product in products">
                                             <td>{{product.productName}}</td>
+                                            <td>{{product.productDescription}}</td>
+                                            <td>{{product.productDescription}}</td>
+                                            <td>{{product.productDescription}}</td>
+                                            <td>{{product.productDescription}}</td>
                                             <td>{{product.productDescription}}</td>
                                             <td>
                                                 <a class="ui primary icon button" data-content="Edit Product" data-variation="inverted" href="#/editproduct/{{$index}}">
