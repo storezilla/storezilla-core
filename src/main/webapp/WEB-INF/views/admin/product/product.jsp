@@ -257,7 +257,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr ng-repeat="attribute in attributes">
+                                        <tr ng-repeat="attribute in product.attributes">
                                             <td class="collapsing">
                                                 <div class="ui input">
                                                     <input type="text" ng-model="attribute.name" placeholder="Name"> <label></label>

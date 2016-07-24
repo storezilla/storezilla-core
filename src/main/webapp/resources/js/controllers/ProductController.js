@@ -15,18 +15,18 @@ storezillaadminapp.controller('SZAProductAddController',function($scope,$locatio
     $('.ui.radio.checkbox').checkbox();
     $('.ui.dropdown').dropdown({allowAdditions: true});
     $('.ui.special.dropdown').dropdown({allowAdditions: false});
+    $scope.product = {attributes:[]};
+    $scope.addRow = function() {
+        var attribute = {name : $scope.name , value:$scope.value};
+        $scope.product.attributes.push(attribute);
+    };
+    $scope.removeAttribute = function(index) {
+        $scope.product.attributes.splice(index,1);
+    };
     $scope.SaveProduct = function() {
         ProductService.addProduct($scope.product).success(function(response) {
             $location.path('/listproducts');
         });
-    };
-    $scope.attributes = [];
-    $scope.addRow = function() {
-        var attribute = {name : $scope.name , value:$scope.value};
-      $scope.attributes.push(attribute);
-    };
-    $scope.removeAttribute = function(index) {
-        $scope.attributes.splice(index,1);
     };
 });
 
