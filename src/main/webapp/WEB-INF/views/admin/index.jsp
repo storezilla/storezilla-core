@@ -34,6 +34,7 @@
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/app.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/services/storeservice.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/services/CategoryService.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/services/ManufacturerService.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/services/ProductService.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/controllers/OpenStoreController.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/controllers/CategoryController.js"></script>

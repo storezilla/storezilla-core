@@ -1,11 +1,15 @@
 
 /* global storezillaadminapp */
 
-storezillaadminapp.controller('SZAStoreListController',function($scope,StoreService){
+storezillaadminapp.controller('SZAStoreListController',function($scope,StoreService,$location){
     StoreService.getAllStores().success(function(response){
        StoreService.listStores = response;
        $scope.listStores = response;
     });
+    
+    $scope.editStore = function(storeId) {
+      $location.path("/editstore/"+storeId);
+    };
 });
 
 storezillaadminapp.controller('SZAStoreAddController',function($scope,$location,StoreService){
@@ -17,7 +21,10 @@ storezillaadminapp.controller('SZAStoreAddController',function($scope,$location,
 });
 
 storezillaadminapp.controller('SZAStoreEditController',function($scope,$routeParams,StoreService,$location){
-    $scope.store = StoreService.listStores[$routeParams.id];
+    StoreService.getStoreById($routeParams.id).success(function(response) {
+         $scope.store = response; 
+      });  
+
     $scope.SaveStore = function() {
         StoreService.updateStore($scope.store).success(function(response){
             $location.path('/liststores');

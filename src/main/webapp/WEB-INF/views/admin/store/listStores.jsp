@@ -3,8 +3,6 @@
     Created on : Dec 14, 2014, 1:24:57 PM
     Author     : Mitesh Manani
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div id="at-content">
     <table class="ui celled structured table" style="border-style:none">
         <tr>
@@ -49,7 +47,7 @@
                                             <td>{{store.storeName}}</td>
                                             <td>{{store.storeURL}}</td>
                                             <td>
-                                                <a class="ui primary icon button" data-content="Edit Store" data-variation="inverted" href="#/editstore/{{$index}}">
+                                                <a class="ui primary icon button" data-content="Edit Store" data-variation="inverted" ng-click="editStore(store.storeId)">
                                                     <i class="pencil icon"></i>
                                                 </a>
                                             </td>

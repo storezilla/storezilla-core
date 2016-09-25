@@ -8,8 +8,11 @@ package org.storezilla.product.dao;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.storezilla.category.dao.CategoryDao;
@@ -46,7 +49,14 @@ public class ProductImpl implements ProductDao {
     @Override
     public List<Product> listProducts() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Product> listProducts = session.createQuery("From product").list();
+        Criteria criteria = session.createCriteria(Product.class).setProjection(Projections.projectionList()
+        .add(Projections.property("productName"),"productName")
+        .add(Projections.property("model"), "model")
+        .add(Projections.property("price"),"price")
+        .add(Projections.property("quantity"),"quantity")
+        .add(Projections.property("status"),"status")
+        ).setResultTransformer(Transformers.aliasToBean(Product.class));
+        List<Product> listProducts = criteria.list();
         return listProducts;
     }
 

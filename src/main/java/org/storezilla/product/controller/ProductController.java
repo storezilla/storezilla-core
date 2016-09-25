@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.storezilla.category.service.CategoryService;
+import org.storezilla.manufacturer.service.ManufacturerService;
 import org.storezilla.product.model.Product;
 import org.storezilla.product.service.ProductService;
+import org.storezilla.store.service.OpenStoreService;
 
 /**
  *

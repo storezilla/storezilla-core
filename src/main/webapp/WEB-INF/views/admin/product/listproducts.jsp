@@ -42,7 +42,8 @@
                                             <th>Price</th>
                                             <th>Quantity</th>
                                             <th>Status</th>
-                                            <th>Action</th>
+                                            <th>Edit</th>
+                                            <th>Remove</th>
                                         </tr>
                                     </thead>
                                     <tbody>

@@ -64,7 +64,7 @@ storezillaadminapp.config(['$routeProvider','$locationProvider',
             templateUrl:_contextPath+"/products/geteditproduct",
             controller : "SZAProductUpdateController"
         });
-        //$locationProvider.html5Mode({enabled : true,requireBase : false});
+        //$locationProvider.html5Mode({enabled : true});
    }]);
    
     storezillaadminapp.config(['$provide', function($provide){

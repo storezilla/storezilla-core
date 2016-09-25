@@ -33,6 +33,12 @@ public class CategoryController {
     public @ResponseBody List<Category> listCategories() {
         return categoryService.listCategories();
     }
+
+    @RequestMapping(value="/edit/{categoryId}",method = RequestMethod.GET,produces = {MediaType.APPLICATION_JSON})
+    @ResponseStatus(value = HttpStatus.OK)    
+    public @ResponseBody Category getCategoryById(@PathVariable int categoryId) {
+        return categoryService.getCategoryById(categoryId);
+    }
     
     @RequestMapping(value = "/add",method = RequestMethod.POST,consumes = {MediaType.APPLICATION_JSON})
     @ResponseStatus(value = HttpStatus.OK)
@@ -40,9 +46,9 @@ public class CategoryController {
             this.categoryService.addCategory(category);
     }
 
-    @RequestMapping(value = "/edit",method = RequestMethod.PUT,produces = {MediaType.APPLICATION_JSON},consumes = {MediaType.APPLICATION_JSON})
+    @RequestMapping(value = "/update",method = RequestMethod.PUT,produces = {MediaType.APPLICATION_JSON},consumes = {MediaType.APPLICATION_JSON})
     @ResponseStatus(value = HttpStatus.OK)
-    public @ResponseBody void editCategory(@RequestBody Category category)  {
+    public @ResponseBody void updateCategory(@RequestBody Category category)  {
         this.categoryService.updateCategory(category);
     }
    

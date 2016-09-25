@@ -1,5 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div>
     <table class="ui celled structured table" border="1">
         <tr>
@@ -187,12 +185,14 @@
                             <div class="ui form">
                                 <div class="field">
                                     <label>Manufacturer</label>
-                                    <div class="ui fluid search selection dropdown">
-                                        <input name="manufacturer" type="hidden">
-                                        <i class="dropdown icon"></i>
-                                        <div class="default text">Select Manufacturer</div>
+                                    <div class="ui fluid selection dropdown">
+                                        <input name="manufacturerId" type="hidden" ng-model="product.manufacturer_manufacturerId"/>
+                                        <i class="dropdown icon"></i>	
+                                        <div class="text">Select Manufacturer</div>                                        
                                         <div class="menu">
-                                            <div class="item" data-value="in"><i class="in flag"></i>India</div>
+                                            <div data-value="{{manufacturer.manufacturerId}}" class="item" ng-repeat="manufacturer in manufacturers" ng-click="selectManufacturer(manufacturer)">
+                                                {{manufacturer.manufacturerName}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

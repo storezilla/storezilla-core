@@ -9,8 +9,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.storezilla.category.dao.CategoryDao;
+import org.storezilla.category.service.CategoryService;
+import org.storezilla.manufacturer.dao.ManufacturerDao;
+import org.storezilla.manufacturer.service.ManufacturerService;
 import org.storezilla.product.dao.ProductDao;
 import org.storezilla.product.model.Product;
+import org.storezilla.store.dao.OpenStoreDao;
+import org.storezilla.store.service.OpenStoreService;
 /**
  *
  * @author LPT466
@@ -21,7 +27,16 @@ public class ProductServiceImpl implements ProductService {
     
     @Autowired
     private ProductDao productDao;
-
+    
+    @Autowired
+    private OpenStoreDao storeDao;
+    
+    @Autowired
+    private ManufacturerDao manufacturerDao; 
+    
+    @Autowired
+    private CategoryDao categoryDao;
+    
     @Override
     @Transactional
     public void addProduct(Product product) {

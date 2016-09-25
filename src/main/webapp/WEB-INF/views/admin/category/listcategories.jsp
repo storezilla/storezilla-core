@@ -47,7 +47,7 @@
                                             <td>{{category.categoryName}}</td>
                                             <td>{{category.sortOrder}}</td>
                                             <td>
-                                                <a class="ui primary icon button" data-content="Edit Category" data-variation="inverted" href="#/editcategory/{{$index}}">
+                                                <a class="ui primary icon button" data-content="Edit Category" data-variation="inverted" ng-click="editCategory(category.categoryId)">
                                                     <i class="pencil icon"></i>
                                                 </a>
                                             </td>

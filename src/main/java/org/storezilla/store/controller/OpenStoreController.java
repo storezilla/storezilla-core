@@ -33,6 +33,12 @@ public class OpenStoreController {
     public @ResponseBody List<OpenStore> listOpenStores() {
         return storeService.listOpenStores();
     }
+
+    @RequestMapping(value="/edit/{storeId}",method = RequestMethod.GET,produces = {MediaType.APPLICATION_JSON})
+    @ResponseStatus(value = HttpStatus.OK)    
+    public @ResponseBody OpenStore getStoreById(@PathVariable int storeId) {
+        return storeService.getStoreById(storeId);
+    }
     
     @RequestMapping(value = "/add",method = RequestMethod.POST,consumes = {MediaType.APPLICATION_JSON})
     @ResponseStatus(value = HttpStatus.OK)
@@ -40,9 +46,9 @@ public class OpenStoreController {
             this.storeService.addOpenStore(store);
     }
 
-    @RequestMapping(value = "/edit",method = RequestMethod.PUT,produces = {MediaType.APPLICATION_JSON},consumes = {MediaType.APPLICATION_JSON})
+    @RequestMapping(value = "/update",method = RequestMethod.PUT,produces = {MediaType.APPLICATION_JSON},consumes = {MediaType.APPLICATION_JSON})
     @ResponseStatus(value = HttpStatus.OK)
-    public @ResponseBody void editOpenStore(@RequestBody OpenStore store)  {
+    public @ResponseBody void updateOpenStore(@RequestBody OpenStore store)  {
         this.storeService.updateOpenStore(store);
     }
    

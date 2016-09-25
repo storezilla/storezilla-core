@@ -8,8 +8,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
+import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.storezilla.category.model.Category;
@@ -44,7 +47,12 @@ public class CategoryImpl implements CategoryDao {
     @Override
     public List<Category> listCategories() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Category> listCategories = session.createQuery("From category").list();
+        Criteria criteria = session.createCriteria(Category.class).setProjection(Projections.projectionList()
+        .add(Projections.property("categoryId"),"categoryId")
+        .add(Projections.property("categoryName"),"categoryName")
+        .add(Projections.property("sortOrder"), "sortOrder")
+        ).setResultTransformer(Transformers.aliasToBean(Category.class));
+        List<Category> listCategories = criteria.list();
         return listCategories;
     }
 
@@ -52,13 +60,6 @@ public class CategoryImpl implements CategoryDao {
     public Category getCategoryById(int categoryId) {
         Session session = this.sessionFactory.getCurrentSession();
         Category category = (Category)session.load(Category.class,new Integer(categoryId));
-        Collection<OpenStore> storelist = category.getStorelist();
-        Iterator ir  = storelist.iterator();
-        while(ir.hasNext()) {
-            OpenStore store = (OpenStore)ir.next();
-            System.out.println(store.getStoreName());
-        }
-        
         return category;
     }
 

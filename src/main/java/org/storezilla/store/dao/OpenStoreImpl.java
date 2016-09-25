@@ -5,8 +5,11 @@
 package org.storezilla.store.dao;
 
 import java.util.List;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
+import org.hibernate.transform.Transformers;
 import org.storezilla.store.model.OpenStore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -44,10 +47,12 @@ public class OpenStoreImpl implements OpenStoreDao {
     @Override
     public List<OpenStore> listOpenStores() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<OpenStore> listOpenStores = session.createQuery("From OpenStore").list();
-        for(OpenStore stores : listOpenStores) {
-            System.out.println("Store List : "+listOpenStores);
-        }
+        Criteria criteria = session.createCriteria(OpenStore.class).setProjection(Projections.projectionList()
+        .add(Projections.property("storeId"),"storeId")                
+        .add(Projections.property("storeName"),"storeName")
+        .add(Projections.property("storeURL"), "storeURL")
+        ).setResultTransformer(Transformers.aliasToBean(OpenStore.class));
+        List<OpenStore> listOpenStores = criteria.list();
         return listOpenStores;
     }
 

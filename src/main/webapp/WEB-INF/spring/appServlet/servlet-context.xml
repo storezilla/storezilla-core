@@ -26,9 +26,29 @@
     </beans:bean>
 
     <beans:bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <beans:property name="jndiName" value="jdbc/storezilla"/>
+        <beans:property name="jndiName" value="java:comp/env/jdbc/storezilla"/>
     </beans:bean>
-
+    
+<!--    
+    
+    <beans:bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+        dataSource-ref="dataSource"
+        packagesToScan="org.storezilla">
+        
+        <beans:property name="jpaVendorAdapter">
+            <beans:bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"
+              p:showSql="true"/>
+        </beans:property>
+        
+        <beans:property name="jpaProperties">
+            <beans:props>
+                <beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</beans:prop>
+                <beans:prop key="hibernate.format_sql">true</beans:prop>
+                <beans:prop key="hibernate.hbm2ddl.auto">update</beans:prop>
+            </beans:props>
+        </beans:property>
+    </beans:bean>
+-->    
     <!-- Hibernate 4 SessionFactory Bean definition -->
     <beans:bean id="hibernate4AnnotatedSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <beans:property name="dataSource" ref="dataSource" />
@@ -37,6 +57,9 @@
                 <beans:value>org.storezilla.store.model.OpenStore</beans:value>
                 <beans:value>org.storezilla.category.model.Category</beans:value>
                 <beans:value>org.storezilla.product.model.Product</beans:value>
+                <beans:value>org.storezilla.stockstatus.model.StockStatus</beans:value>
+                <beans:value>org.storezilla.manufacturer.model.Manufacturer</beans:value>
+                <beans:value>org.storezilla.taxclass.model.TaxClass</beans:value>
             </beans:list>
         </beans:property>
 
@@ -48,7 +71,7 @@
             </beans:props>
         </beans:property>
     </beans:bean>
-    
+
     <context:component-scan base-package="org.storezilla"/>
     <tx:annotation-driven transaction-manager="transactionManager"/>
      
