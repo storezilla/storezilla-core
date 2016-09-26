@@ -14,9 +14,9 @@
                 </div>                        
             </td>
             <td style="border-style:none">
-                <a class="ui right floated blue button" href="#/addstore" data-content="Add New" data-variation="inverted">
+                <button class="ui right floated blue button" data-content="Add New" data-variation="inverted" ng-click="addStore()">
                     <i class="plus icon"></i>Add Store
-                </a>
+                </button>
             </td>
         </tr>
         <tr>
@@ -47,14 +47,14 @@
                                             <td>{{store.storeName}}</td>
                                             <td>{{store.storeURL}}</td>
                                             <td>
-                                                <a class="ui primary icon button" data-content="Edit Store" data-variation="inverted" ng-click="editStore(store.storeId)">
+                                                <button class="ui primary icon button" data-content="Edit Store" data-variation="inverted" ng-click="editStore(store.storeId)">
                                                     <i class="pencil icon"></i>
-                                                </a>
+                                                </button>
                                             </td>
                                             <td>
-                                                <a class="ui red icon button" data-content="Remove Store" data-variation="inverted" href="#/removestore/{{store.storeId}}">
+                                                <button class="ui red icon button" data-content="Remove Store" data-variation="inverted" ng-click="removeStore(store.storeId)">
                                                     <i class="remove icon"></i>
-                                                </a>
+                                                </button>
                                             </td>
                                         </tr>
                                     </tbody>

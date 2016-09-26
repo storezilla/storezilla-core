@@ -122,6 +122,3 @@ storezillaadminapp.config(['$routeProvider','$locationProvider',
           return taTools;
       }]);   
     }]);
-$('.menu .item')
-  .tab()
-;

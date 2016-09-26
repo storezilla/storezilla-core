@@ -15,10 +15,7 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.storezilla.category.dao.CategoryDao;
-import org.storezilla.category.model.Category;
 import org.storezilla.product.model.Product;
-import org.storezilla.store.model.OpenStore;
 
 /**
  *
@@ -50,6 +47,7 @@ public class ProductImpl implements ProductDao {
     public List<Product> listProducts() {
         Session session = this.sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(Product.class).setProjection(Projections.projectionList()
+        .add(Projections.property("productId"),"productId")
         .add(Projections.property("productName"),"productName")
         .add(Projections.property("model"), "model")
         .add(Projections.property("price"),"price")

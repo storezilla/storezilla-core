@@ -1,11 +1,20 @@
 
 /* global storezillaadminapp */
 
-storezillaadminapp.controller('SZAProductListController',function($scope,ProductService){
+storezillaadminapp.controller('SZAProductListController',function($scope,$location,ProductService){
     ProductService.getAllProducts().success(function(response){
        ProductService.listProducts = response;
        $scope.products = response;
     });
+    $scope.editProduct = function(productId) {
+      $location.path("/editproduct/"+productId);
+    };
+    $scope.removeProduct = function(productId) {
+      $location.path("/removeproduct/"+productId);
+    };
+    $scope.addProduct = function() {
+        $location.path("/addproduct");
+    };
 });
 
 storezillaadminapp.controller('SZAProductAddController',function($scope,$location,ProductService,ManufacturerService){
@@ -41,7 +50,9 @@ storezillaadminapp.controller('SZAProductAddController',function($scope,$locatio
 
 storezillaadminapp.controller('SZAProductEditController',function($scope,$routeParams,ProductService,$location){
     $('.menu .item').tab();
-    $scope.product = ProductService.listProducts[$routeParams.id];
+    ProductService.getProductById($routeParams.id).success(function(response) {
+         $scope.product = response; 
+      });  
     $scope.SaveProduct = function() {
         ProductService.updateProduct($scope.product).success(function(response){
             $location.path('/listproducts');

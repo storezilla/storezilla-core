@@ -37,6 +37,11 @@ public class ProductController {
     public @ResponseBody List<Product> listProducts() {
         return productService.listProducts();
     }
+
+    @RequestMapping(value="/edit/{productId}",method = RequestMethod.GET,produces = {MediaType.APPLICATION_JSON})
+    public @ResponseBody Product getProductById(@PathVariable int productId) {
+        return productService.getProductById(productId);
+    }
     
     @RequestMapping(value = "/add",method = RequestMethod.POST,consumes = {MediaType.APPLICATION_JSON})
     @ResponseStatus(value = HttpStatus.OK)
@@ -44,7 +49,7 @@ public class ProductController {
             this.productService.addProduct(product);
     }
 
-    @RequestMapping(value = "/edit",method = RequestMethod.PUT,produces = {MediaType.APPLICATION_JSON},consumes = {MediaType.APPLICATION_JSON})
+    @RequestMapping(value = "/update",method = RequestMethod.PUT,produces = {MediaType.APPLICATION_JSON},consumes = {MediaType.APPLICATION_JSON})
     @ResponseStatus(value = HttpStatus.OK)
     public @ResponseBody void editProduct(@RequestBody Product product)  {
         this.productService.updateProduct(product);

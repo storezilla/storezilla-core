@@ -6,13 +6,19 @@ storezillaadminapp.controller('SZACategoryListController',function($scope,$locat
        CategoryService.listCategories = response;
        $scope.categories = response;
     });
-
     $scope.editCategory = function(categoryId) {
       $location.path("/editcategory/"+categoryId);
+    };
+    $scope.removeCategory = function(categoryId) {
+      $location.path("/removecategory/"+categoryId);
+    };
+    $scope.addCategory = function() {
+        $location.path("/addcategory");
     };
 });
 
 storezillaadminapp.controller('SZACategoryAddController',function($scope,$location,CategoryService){
+    $('.menu .item').tab();
     $scope.SaveCategory = function() {
         CategoryService.addCategory($scope.category).success(function(response) {
             $location.path('/listcategories');
@@ -21,6 +27,7 @@ storezillaadminapp.controller('SZACategoryAddController',function($scope,$locati
 });
 
 storezillaadminapp.controller('SZACategoryEditController',function($scope,$routeParams,CategoryService,$location){
+    $('.menu .item').tab();
     CategoryService.getCategoryById($routeParams.id).success(function(response) {
          $scope.category = response; 
       });  

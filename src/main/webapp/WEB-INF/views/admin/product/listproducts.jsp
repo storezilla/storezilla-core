@@ -55,14 +55,14 @@
                                             <td>{{product.productDescription}}</td>
                                             <td>{{product.productDescription}}</td>
                                             <td>
-                                                <a class="ui primary icon button" data-content="Edit Product" data-variation="inverted" href="#/editproduct/{{$index}}">
+                                                <button class="ui primary icon button" data-content="Edit Product" data-variation="inverted" ng-click="editProduct(product.productId)">
                                                     <i class="pencil icon"></i>
-                                                </a>
+                                                </button>
                                             </td>
                                             <td>
-                                                <a class="ui red icon button" data-content="Remove Product" data-variation="inverted" href="#/removeproduct/{{product.productId}}">
+                                                <button class="ui red icon button" data-content="Remove Product" data-variation="inverted" ng-click="removeProduct(product.productId)">
                                                     <i class="remove icon"></i>
-                                                </a>
+                                                </button>
                                             </td>
                                         </tr>
                                     </tbody>

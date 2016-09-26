@@ -14,9 +14,9 @@
                 </div>                        
             </td>
             <td style="border-style:none">
-                <a class="ui right floated blue button" href="#/addcategory" data-content="Add New" data-variation="inverted">
+                <button class="ui right floated blue button" data-content="Add New" data-variation="inverted" ng-click="addCategory()">
                     <i class="plus icon"></i>Add Category
-                </a>
+                </button>
             </td>
         </tr>
         <tr>
@@ -47,14 +47,14 @@
                                             <td>{{category.categoryName}}</td>
                                             <td>{{category.sortOrder}}</td>
                                             <td>
-                                                <a class="ui primary icon button" data-content="Edit Category" data-variation="inverted" ng-click="editCategory(category.categoryId)">
+                                                <button class="ui primary icon button" data-content="Edit Category" data-variation="inverted" ng-click="editCategory(category.categoryId)">
                                                     <i class="pencil icon"></i>
-                                                </a>
+                                                </button>
                                             </td>
                                             <td>
-                                                <a class="ui red icon button" data-content="Remove Category" data-variation="inverted" href="#/removecategory/{{category.categoryId}}">
+                                                <button class="ui red icon button" data-content="Remove Category" data-variation="inverted" ng-click="removeCategory(category.categoryId)">
                                                     <i class="remove icon"></i>
-                                                </a>
+                                                </button>
                                             </td>
                                         </tr>
                                     </tbody>

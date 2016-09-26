@@ -6,13 +6,20 @@ storezillaadminapp.controller('SZAStoreListController',function($scope,StoreServ
        StoreService.listStores = response;
        $scope.listStores = response;
     });
-    
+
     $scope.editStore = function(storeId) {
       $location.path("/editstore/"+storeId);
+    };
+    $scope.removeStore = function(storeId) {
+      $location.path("/removestore/"+storeId);  
+    };
+    $scope.addStore = function() {
+       $location.path("/addstore");
     };
 });
 
 storezillaadminapp.controller('SZAStoreAddController',function($scope,$location,StoreService){
+    $('.menu .item').tab();
     $scope.SaveStore = function() {
         StoreService.addStore($scope.store).success(function(response) {
             $location.path('/liststores');
@@ -21,6 +28,7 @@ storezillaadminapp.controller('SZAStoreAddController',function($scope,$location,
 });
 
 storezillaadminapp.controller('SZAStoreEditController',function($scope,$routeParams,StoreService,$location){
+    $('.menu .item').tab();
     StoreService.getStoreById($routeParams.id).success(function(response) {
          $scope.store = response; 
       });  
