@@ -186,11 +186,11 @@
                                 <div class="field">
                                     <label>Manufacturer</label>
                                     <div class="ui fluid selection dropdown">
-                                        <input name="manufacturerId" type="hidden" ng-model="product.manufacturer_manufacturerId"/>
+                                        <input name="manufacturerId" type="hidden" ng-model="product.manufacturer.manufacturerId"/>
                                         <i class="dropdown icon"></i>	
                                         <div class="text">Select Manufacturer</div>                                        
                                         <div class="menu">
-                                            <div data-value="{{manufacturer.manufacturerId}}" class="item" ng-repeat="manufacturer in manufacturers" ng-click="selectManufacturer(manufacturer)">
+                                            <div data-value="{{manufacturer.manufacturerId}}" class="item" ng-repeat="manufacturer in manufacturers" ng-selected="product.manufacturer.manufacturerId">
                                                 {{manufacturer.manufacturerName}}
                                             </div>
                                         </div>

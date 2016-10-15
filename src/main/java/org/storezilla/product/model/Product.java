@@ -8,13 +8,18 @@ package org.storezilla.product.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.Proxy;
 import org.storezilla.category.model.Category;
 import org.storezilla.manufacturer.model.Manufacturer;
@@ -65,7 +70,8 @@ public class Product {
     @Column(name="price")
     private float price; 
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private TaxClass taxClass; 
     
     @Column(name="quantity")
@@ -77,7 +83,8 @@ public class Product {
     @Column(name="substract")
     private boolean subatractStock; 
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private StockStatus stockStatus; 
     
     @Column(name="requiredshipping")
@@ -101,13 +108,16 @@ public class Product {
     @Column(name="sortorder")
     private int sortOrder; 
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private Manufacturer manufacturer; 
     
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private Collection<Category> categories = new ArrayList<Category>();
     
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.FALSE)
     private Collection<OpenStore> stores = new ArrayList<OpenStore>();
 
     /**

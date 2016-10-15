@@ -10,12 +10,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Entity;
+import org.hibernate.annotations.Proxy;
 
 /**
  *
  * @author LPT466
  */
 @Entity
+@Proxy(lazy = false)
 public class TaxClass {
     
     @Id
