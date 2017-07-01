@@ -1,23 +1,25 @@
-<div class="ui small brown inverted fluid vertical pointing menu">
-    <a class="item" href="#/liststores">
-        <i class="home icon"></i>Store
-    </a>
-    <a class="item" href="#/listcategories">
-        <i class="cubes icon"></i>Categories
-    </a>
-    <a class="item" href="#/listproducts">
-        <i class="tags icon"></i>Products
-    </a>
-    <a class="item" id="at-menu-item-catalouge">
-        <i class="shop icon"></i>Orders Management
-    </a>
-    <a class="item" id="at-menu-item-catalouge">
-        <i class="shipping icon"></i>Shipping Management
-    </a>
-    <a class="item" id="at-menu-item-catalouge">
-        <i class="users icon"></i>Users Management
-    </a>
-    <a class="item" id="at-menu-item-catalouge">
-        <i class="payment icon"></i>Payment Gateways
-    </a>
-</div>
+<md-sidenav md-closed>
+    <md-list flex>
+        <md-list-item href="#/liststores">
+            <i class="material-icons">android</i>Store
+        </md-list-item>
+        <md-list-item href="#/listcategories">
+            <i class="material-icons">android</i>Categories
+        </md-list-item>
+        <md-list-item href="#/listproducts">
+            <i class="material-icons">android</i>Products
+        </md-list-item>
+        <md-list-item id="at-menu-item-catalouge">
+            <i class="material-icons">android</i>Orders Management
+        </md-list-item>
+        <md-list-item id="at-menu-item-catalouge">
+            <i class="material-icons">android</i>Shipping Management
+        </md-list-item>
+        <md-list-item id="at-menu-item-catalouge">
+            <i class="material-icons">android</i>Users Management
+        </md-list-item>
+        <md-list-item id="at-menu-item-catalouge">
+            <i class="material-icons">android</i>Payment Gateways
+        </md-list-item>
+    </md-list>
+</md-sidenav>

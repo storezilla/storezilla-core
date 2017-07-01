@@ -9,14 +9,14 @@
                 </div>                        
             </td>
             <td id="at-td-savebutton" style="border-style:none;">
-                <button name="at-store-savebutton" type ="submit" class="ui green icon submit button" data-content="Save" data-variation="inverted" ng-click="SaveStore()">
+                <md-button name="at-store-savebutton" type ="submit" class="ui green icon submit button" data-content="Save" data-variation="inverted" ng-click="SaveStore()">
                     <i class="save icon"></i>
-                </button>
+                </md-button>
             </td>
             <td id="at-td-cancelbutton" style="border-style:none">
-                <button name="at-store-cancelbutton" type="submit" class="ui blue icon button" data-content="Undo" data-variation="inverted">
+                <md-button name="at-store-cancelbutton" type="submit" class="ui blue icon button" data-content="Undo" data-variation="inverted">
                     <i class="undo icon"></i>
-                </button>
+                </md-button>
             </td>
         </tr>
         <tr>

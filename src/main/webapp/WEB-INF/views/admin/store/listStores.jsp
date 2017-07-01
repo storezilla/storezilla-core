@@ -14,9 +14,9 @@
                 </div>                        
             </td>
             <td style="border-style:none">
-                <button class="ui right floated blue button" data-content="Add New" data-variation="inverted" ng-click="addStore()">
+                <md-button class="ui right floated blue button" data-content="Add New" data-variation="inverted" ng-click="addStore()">
                     <i class="plus icon"></i>Add Store
-                </button>
+                </md-button>
             </td>
         </tr>
         <tr>
@@ -47,14 +47,14 @@
                                             <td>{{store.storeName}}</td>
                                             <td>{{store.storeURL}}</td>
                                             <td>
-                                                <button class="ui primary icon button" data-content="Edit Store" data-variation="inverted" ng-click="editStore(store.storeId)">
-                                                    <i class="pencil icon"></i>
-                                                </button>
+                                                <md-button class="md-icon-button" ng-click="editStore(store.storeId)">
+                                                    <i class="material-icons">edit</i>
+                                                </md-button>
                                             </td>
                                             <td>
-                                                <button class="ui red icon button" data-content="Remove Store" data-variation="inverted" ng-click="removeStore(store.storeId)">
-                                                    <i class="remove icon"></i>
-                                                </button>
+                                                <md-button class="md-icon-button" ng-click="removeStore(store.storeId)">
+                                                    <i class="material-icons">delete</i>
+                                                </md-button>
                                             </td>
                                         </tr>
                                     </tbody>

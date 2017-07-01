@@ -1,5 +1,5 @@
-<div id="at-main-header">
-        <h3 id="at-header" class="ui brown block header">
-            <i class="shop icon"></i>StoreZilla
+<div id="at-main-header" flex>
+        <h3 id="at-header">
+            <md-icon md-font-icon="android" aria-label="StoreZilla"></md-icon>
         </h3>
 </div>

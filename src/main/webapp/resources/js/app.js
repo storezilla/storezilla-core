@@ -1,6 +1,6 @@
 /* global angular, _contextPath */
 
-var storezillaadminapp = angular.module('storezilla-admin',['ngRoute','textAngular']);
+var storezillaadminapp = angular.module('storezilla-admin',['ngMaterial','ngRoute','textAngular']);
 
 storezillaadminapp.config(['$routeProvider','$locationProvider',
     function($routeProvider,$locationProvider) {

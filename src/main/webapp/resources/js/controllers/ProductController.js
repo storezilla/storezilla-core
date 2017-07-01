@@ -17,13 +17,18 @@ storezillaadminapp.controller('SZAProductListController',function($scope,$locati
     };
 });
 
-storezillaadminapp.controller('SZAProductAddController',function($scope,$location,ProductService,ManufacturerService){
+storezillaadminapp.controller('SZAProductAddController',function($rootScope,$scope,$location,ProductService,ManufacturerService){
     $('.menu .item').tab();
     $('select.dropdown').dropdown();
     $('.ui.checkbox').checkbox();
     $('.ui.radio.checkbox').checkbox();
     $('.ui.dropdown').dropdown({allowAdditions: true});
     $('.ui.special.dropdown').dropdown({allowAdditions: false});
+    
+    $rootScope.$on('$viewContentLoaded',function(){
+        $('#selectmanufacturer').dropdown();
+    });
+
     ManufacturerService.getAllManufacturers().success(function(response){
         $scope.manufacturers =  response;
     });
@@ -48,19 +53,19 @@ storezillaadminapp.controller('SZAProductAddController',function($scope,$locatio
     };
 });
 
-storezillaadminapp.controller('SZAProductEditController',function($scope,$routeParams,ProductService,ManufacturerService,$location){
+storezillaadminapp.controller('SZAProductEditController',function($rootScope,$scope,$routeParams,ProductService,ManufacturerService,$location){
     $('.menu .item').tab();
-    $('select.dropdown').dropdown();
-    $('.ui.checkbox').checkbox();
-    $('.ui.radio.checkbox').checkbox();
-    $('.ui.dropdown').dropdown({allowAdditions: true});
-    $('.ui.special.dropdown').dropdown({allowAdditions: false});
+    //$('select.dropdown').dropdown();
+    //$('.ui.checkbox').checkbox();
+    //$('.ui.radio.checkbox').checkbox();
+    //$('.ui.dropdown').dropdown({allowAdditions: true});
+    //$('.ui.special.dropdown').dropdown({allowAdditions: false});
+    $rootScope.$on('$viewContentLoaded',function(){
+        $('#selectmanufacturer').dropdown();
+    });
     ManufacturerService.getAllManufacturers().success(function(response){
         $scope.manufacturers =  response;
     });
-    $scope.selectManufacturer = function(manufacturer) {
-        $scope.selectedItem = manufacturer;
-    };
     ProductService.getProductById($routeParams.id).success(function(response) {
          $scope.product = response; 
     });  

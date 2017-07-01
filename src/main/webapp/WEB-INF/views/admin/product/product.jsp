@@ -185,16 +185,24 @@
                             <div class="ui form">
                                 <div class="field">
                                     <label>Manufacturer</label>
-                                    <div class="ui fluid selection dropdown">
-                                        <input name="manufacturerId" type="hidden" ng-model="product.manufacturer.manufacturerId"/>
-                                        <i class="dropdown icon"></i>	
-                                        <div class="text">Select Manufacturer</div>                                        
-                                        <div class="menu">
-                                            <div data-value="{{manufacturer.manufacturerId}}" class="item" ng-repeat="manufacturer in manufacturers" ng-selected="product.manufacturer.manufacturerId">
-                                                {{manufacturer.manufacturerName}}
+                                    <!--
+                                        <div class="ui fluid selection dropdown">
+                                            <input name="manufacturerId" type="hidden" ng-model="product.manufacturer.manufacturerId"/>
+                                            <i class="dropdown icon"></i>	
+                                            <div class="text">Select Manufacturer</div>                                        
+                                            <div class="menu">
+                                                <div data-value="{{manufacturer.manufacturerId}}" class="item" ng-repeat="manufacturer in manufacturers" ng-selected="product.manufacturer.manufacturerId">
+                                                    {{manufacturer.manufacturerName}}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    -->
+                                   <select required class="ui dropdown" ng-model="product.manufacturer.manufacturerId" ng-options="manufacturer.manufacturerId as manufacturer.manufacturerName for manufacturer in manufacturers" id="selectmanufacturer"></select>
+<!--                                   
+                                   <select required class="ui dropdown" ng-model="product.manufacturer.manufacturerId">
+                                       <option ng-repeat="manufacturer in manufacturers" value="{{manufacturer.manufacturerId}}">{{manufacturer.manufacturerName}}</option>
+                                   </select>
+-->
                                 </div>
                                 <div class="ui section divider"></div>
                                 <div class="field">

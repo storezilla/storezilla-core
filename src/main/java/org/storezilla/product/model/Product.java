@@ -451,10 +451,10 @@ public class Product {
 
     /**
      * @param manufacturer the manufacturer to set
-     */
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
+     */
 
     /**
      * @return the categories
