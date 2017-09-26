@@ -1,4 +1,4 @@
-<md-sidenav md-closed>
+<md-sidenav md-component-id="sidenav">
     <md-list flex>
         <md-list-item href="#/liststores">
             <i class="material-icons">android</i>Store

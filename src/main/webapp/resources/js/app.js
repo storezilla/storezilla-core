@@ -66,7 +66,11 @@ storezillaadminapp.config(['$routeProvider','$locationProvider',
         });
         //$locationProvider.html5Mode({enabled : true});
    }]);
-   
+   storezillaadminapp.controller('SZAdminAppController',function($scope,$mdSidenav){
+      $scope.toggleMenu = function() {
+        $mdSidenav('sidenav').toggle();
+      }; 
+   });
     storezillaadminapp.config(['$provide', function($provide){
       // this demonstrates how to register a new tool and add it to the default toolbar
       $provide.decorator('taOptions', ['$delegate', function(taOptions){

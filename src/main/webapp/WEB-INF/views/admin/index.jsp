@@ -4,20 +4,30 @@
     <head>
         <%@include file="includes/head.jsp"%>
     </head>
-    <body layout="column">      
-        <md-toolbar layout="row" class="md-toolbar-tools">
-                <header>
-                    <jsp:include page="includes/header.jsp"></jsp:include>
-                </header>
-        </md-toolbar>
-        <div flex layout="row">
-            <jsp:include page="includes/menu.jsp"></jsp:include>
-            <md-content flex>
-                <div ng-view></div>
-            </md-content>
-            <footer>
-                <jsp:include page="includes/footer.jsp"></jsp:include>
-            </footer>
+    <body>      
+        <div layout="column" ng-controller="SZAdminAppController">
+            <div>
+                <md-toolbar class="md-toolbar-tools">
+                        <header>
+                            <jsp:include page="includes/header.jsp"></jsp:include>
+                        </header>
+                </md-toolbar>
+            </div>                    
+            <div layout="row">
+                <div>
+                    <jsp:include page="includes/menu.jsp"></jsp:include>
+                </div>
+                <div flex>
+                    <md-content>
+                        <div ng-view></div>
+                    </md-content>
+                </div>                    
+            </div> 
+            <div>
+                <footer>
+                    <jsp:include page="includes/footer.jsp"></jsp:include>
+                </footer>
+            </div>
         </div>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/angular.min.js"></script>
